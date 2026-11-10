@@ -1,1 +1,210 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Thin.otf")
+    format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Light.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Medium.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_DemiBold.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Extra_Bold.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Houschka Rounded — Italic styles */
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Thin_Italic.otf")
+    format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Light_Italic.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Medium_Italic.otf")
+    format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_DemiBold_Italic.otf")
+    format("opentype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Bold_Italic.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Houschka Rounded";
+  src: url("./assets/fonts/fonnts.com-Houschka_Rounded_ExtraBold_Italic.otf")
+    format("opentype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ========================================
+   CRITA BRAND COLORS
+======================================== */
+
+:root {
+  --brand-rainforest: #033f2d;
+  --brand-treetop: #4e6b31;
+  --brand-limeade: #d6e151;
+  --brand-greenery: #7fa53f;
+  --brand-green-essence: #ecebcb;
+
+  color-scheme: light;
+
+  --app-background: var(--brand-green-essence);
+  --surface-primary: var(--brand-green-essence);
+  --surface-secondary: var(--brand-greenery);
+
+  --text-primary: var(--brand-rainforest);
+  --text-secondary: var(--brand-treetop);
+
+  --border-color: var(--brand-greenery);
+
+  --primary: var(--brand-rainforest);
+  --primary-foreground: var(--brand-green-essence);
+
+  --accent: var(--brand-limeade);
+  --accent-foreground: var(--brand-rainforest);
+}
+
+/* ========================================
+   DARK THEME
+======================================== */
+
+.dark {
+  color-scheme: dark;
+
+  --app-background: var(--brand-rainforest);
+  --surface-primary: var(--brand-rainforest);
+  --surface-secondary: var(--brand-treetop);
+
+  --text-primary: var(--brand-green-essence);
+  --text-secondary: var(--brand-limeade);
+
+  --border-color: var(--brand-treetop);
+
+  --primary: var(--brand-limeade);
+  --primary-foreground: var(--brand-rainforest);
+
+  --accent: var(--brand-greenery);
+  --accent-foreground: var(--brand-rainforest);
+}
+
+/* ========================================
+   TAILWIND THEME TOKENS
+======================================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--app-background);
+  --color-surface: var(--surface-primary);
+  --color-surface-secondary: var(--surface-secondary);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-border: var(--border-color);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --font-sans: "Houschka Rounded", sans-serif;
+}
+
+/* ========================================
+   GLOBAL BASE STYLES
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--app-background);
+  color: var(--text-primary);
+  font-family: "Houschka Rounded", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
