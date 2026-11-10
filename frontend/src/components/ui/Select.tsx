@@ -26,7 +26,7 @@ export function Select({
   const selectId = id ?? name;
 
   return (
-    <div className="flex w-full flex-col gap-1.5">
+    <div className="flex w-full flex-col gap-2">
       {label && (
         <label
           htmlFor={selectId}
@@ -42,11 +42,25 @@ export function Select({
         aria-invalid={Boolean(error)}
         aria-describedby={error && selectId ? `${selectId}-error` : undefined}
         className={[
+          // Shape and surface
           "w-full rounded-xl border bg-surface px-4 py-3",
-          "text-sm text-text-primary outline-none transition-all duration-200",
-          "border-border focus:border-primary focus:ring-2 focus:ring-primary/15",
+          "text-sm text-text-primary",
+
+          // Recessed Claymorphism
+          "border-border",
+          "shadow-[inset_3px_3px_7px_rgba(3,63,45,0.08),inset_-3px_-3px_7px_rgba(255,255,255,0.65)]",
+          "dark:shadow-[inset_3px_3px_7px_rgba(0,0,0,0.2),inset_-2px_-2px_6px_rgba(255,255,255,0.025)]",
+
+          // Focus
+          "outline-none transition-all duration-200",
+          "focus:border-primary focus:ring-2 focus:ring-primary/15",
+
+          // Disabled
           "disabled:cursor-not-allowed disabled:opacity-50",
-          error ? "border-red-500 focus:border-red-500" : "",
+
+          // Error
+          error ? "border-danger focus:border-danger" : "",
+
           className,
         ].join(" ")}
         {...props}
@@ -67,7 +81,7 @@ export function Select({
       {error && (
         <p
           id={selectId ? `${selectId}-error` : undefined}
-          className="text-xs text-red-600"
+          className="text-xs text-danger"
         >
           {error}
         </p>

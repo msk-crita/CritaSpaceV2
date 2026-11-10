@@ -55,7 +55,11 @@ export function RadioGroup({
               checked={value === option.value}
               disabled={option.disabled}
               onChange={() => onChange(option.value)}
-              className="mt-0.5 h-4 w-4 accent-primary focus:ring-2 focus:ring-primary/20"
+              className={[
+                "mt-0.5 h-4 w-4 shrink-0 accent-primary",
+                "shadow-[1px_1px_3px_rgba(3,63,45,0.1)]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25",
+              ].join(" ")}
             />
 
             <span className="flex flex-col gap-0.5">
@@ -64,7 +68,7 @@ export function RadioGroup({
               </span>
 
               {option.description && (
-                <span className="text-xs text-text-secondary">
+                <span className="text-xs leading-relaxed text-text-secondary">
                   {option.description}
                 </span>
               )}

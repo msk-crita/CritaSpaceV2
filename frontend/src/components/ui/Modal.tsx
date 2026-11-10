@@ -46,7 +46,7 @@ export function Modal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#071A12]/50 p-4 backdrop-blur-[3px]"
       onMouseDown={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
@@ -56,12 +56,15 @@ export function Modal({
         aria-modal="true"
         aria-labelledby="modal-title"
         className={[
-          "w-full overflow-hidden rounded-3xl border border-border",
-          "bg-surface shadow-2xl",
+          "w-full overflow-hidden rounded-[1.75rem]",
+          "border border-border",
+          "bg-surface-elevated",
+          "shadow-[0_24px_65px_rgba(3,63,45,0.18),inset_0_1px_0_rgba(255,255,255,0.8)]",
+          "dark:shadow-[0_24px_65px_rgba(0,0,0,0.38),inset_0_1px_0_rgba(255,255,255,0.045)]",
           sizeStyles[size],
         ].join(" ")}
       >
-        <header className="flex items-start justify-between gap-4 border-b border-border px-6 py-5">
+        <header className="flex items-start justify-between gap-4 border-b border-border bg-surface px-7 py-6">
           <div>
             <h2
               id="modal-title"

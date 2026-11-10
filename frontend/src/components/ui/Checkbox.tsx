@@ -20,7 +20,10 @@ export function Checkbox({
   return (
     <label
       htmlFor={checkboxId}
-      className="inline-flex cursor-pointer items-start gap-3"
+      className={[
+        "inline-flex items-start gap-3",
+        props.disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
+      ].join(" ")}
     >
       <input
         {...props}
@@ -28,8 +31,10 @@ export function Checkbox({
         type="checkbox"
         className={[
           "mt-0.5 h-4 w-4 shrink-0 rounded border-border",
-          "accent-primary focus:ring-2 focus:ring-primary/20",
-          "disabled:cursor-not-allowed disabled:opacity-50",
+          "accent-primary",
+          "shadow-[1px_1px_3px_rgba(3,63,45,0.1)]",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25",
+          "disabled:cursor-not-allowed",
           className,
         ].join(" ")}
       />
@@ -38,7 +43,9 @@ export function Checkbox({
         <span className="text-sm font-medium text-text-primary">{label}</span>
 
         {description && (
-          <span className="text-xs text-text-secondary">{description}</span>
+          <span className="text-xs leading-relaxed text-text-secondary">
+            {description}
+          </span>
         )}
       </span>
     </label>

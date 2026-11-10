@@ -12,7 +12,13 @@ export function Table({
 }: TableProps) {
   return (
     <div
-      className={`w-full overflow-x-auto rounded-2xl border border-border ${containerClassName}`}
+      className={[
+        "w-full overflow-x-auto rounded-2xl border border-border",
+        "bg-surface",
+        "shadow-[4px_4px_12px_rgba(3,63,45,0.07),-3px_-3px_9px_rgba(232,235,213,0.65)]",
+        "dark:shadow-[4px_4px_12px_rgba(0,0,0,0.20),-3px_-3px_9px_rgba(127,165,63,0.04)]",
+        containerClassName,
+      ].join(" ")}
     >
       <table
         className={`w-full border-collapse text-left text-sm ${className}`}
@@ -29,7 +35,7 @@ export function TableHeader({
   ...props
 }: HTMLAttributes<HTMLTableSectionElement>) {
   return (
-    <thead className="bg-surface-secondary/30 text-text-secondary" {...props}>
+    <thead className="bg-surface-secondary/50 text-text-secondary" {...props}>
       {children}
     </thead>
   );
@@ -53,7 +59,11 @@ export function TableRow({
 }: HTMLAttributes<HTMLTableRowElement>) {
   return (
     <tr
-      className={`transition-colors hover:bg-accent/10 ${className}`}
+      className={[
+        "transition-colors duration-150",
+        "hover:bg-surface-secondary/40",
+        className,
+      ].join(" ")}
       {...props}
     >
       {children}
@@ -67,7 +77,13 @@ export function TableHead({
   ...props
 }: HTMLAttributes<HTMLTableCellElement>) {
   return (
-    <th className={`px-5 py-3 font-semibold ${className}`} {...props}>
+    <th
+      className={[
+        "px-5 py-3 text-xs font-bold uppercase tracking-wide",
+        className,
+      ].join(" ")}
+      {...props}
+    >
       {children}
     </th>
   );

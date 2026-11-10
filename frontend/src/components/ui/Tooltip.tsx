@@ -22,10 +22,13 @@ export function Tooltip({ content, children, position = "top" }: TooltipProps) {
         role="tooltip"
         className={[
           "pointer-events-none absolute z-50 whitespace-nowrap",
-          "rounded-lg bg-(--brand-rainforest) px-3 py-1.5",
-          "text-xs font-medium text-(--brand-green-essence)",
-          "opacity-0 shadow-lg transition-opacity duration-150",
-          "group-hover:opacity-100 group-focus-within:opacity-100",
+          "rounded-lg border border-border/30",
+          "bg-primary px-3 py-1.5",
+          "text-xs font-medium text-primary-foreground",
+          "opacity-0 shadow-[4px_4px_10px_rgba(3,63,45,0.2)]",
+          "transition-all duration-150",
+          "group-hover:translate-y-0 group-hover:opacity-100",
+          "group-focus-within:opacity-100",
           positionStyles[position],
         ].join(" ")}
       >

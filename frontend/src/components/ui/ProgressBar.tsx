@@ -31,8 +31,9 @@ function ProgressBar({
           {label && (
             <span className="font-medium text-text-primary">{label}</span>
           )}
+
           {showValue && (
-            <span className="text-text-secondary">
+            <span className="font-semibold tabular-nums text-text-secondary">
               {Math.round(percentage)}%
             </span>
           )}
@@ -45,10 +46,20 @@ function ProgressBar({
         aria-valuenow={Math.round(percentage)}
         aria-valuemin={0}
         aria-valuemax={100}
-        className={`overflow-hidden rounded-full bg-surface-secondary ${sizes[size]}`}
+        className={[
+          "overflow-hidden rounded-full border border-border/70",
+          "bg-surface-secondary",
+          "shadow-[inset_2px_2px_5px_rgba(3,63,45,0.09),inset_-1px_-1px_3px_rgba(255,255,255,0.35)]",
+          sizes[size],
+        ].join(" ")}
       >
         <div
-          className={`h-full rounded-full bg-primary transition-[width] duration-300 ${sizes[size]}`}
+          className={[
+            "h-full rounded-full bg-primary",
+            "shadow-[1px_1px_4px_rgba(3,63,45,0.18)]",
+            "transition-[width] duration-300 ease-out",
+            sizes[size],
+          ].join(" ")}
           style={{ width: `${percentage}%` }}
         />
       </div>

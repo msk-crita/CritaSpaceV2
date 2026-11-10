@@ -17,23 +17,62 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
 }
 
-const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-xl font-semibold tracking-[0.01em] transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--focus-ring)] disabled:pointer-events-none disabled:opacity-100 disabled:bg-[var(--brand-treetop)] disabled:text-white disabled:shadow-none active:scale-[0.98]";
+const baseStyles = [
+  "inline-flex items-center justify-center gap-2",
+  "rounded-xl font-semibold tracking-[0.01em]",
+  "transition-all duration-200 ease-out",
+  "focus-visible:outline-none",
+  "focus-visible:ring-4 focus-visible:ring-[var(--focus-ring)]",
+  "disabled:pointer-events-none disabled:opacity-60",
+  "active:scale-[0.98] active:translate-y-0",
+].join(" ");
 
 const variants: Record<ButtonVariant, string> = {
-  primary:
-    "bg-[var(--brand-rainforest)] text-white shadow-[0_4px_12px_rgba(3,63,45,0.16)] hover:bg-[var(--brand-treetop)] hover:shadow-[0_6px_16px_rgba(3,63,45,0.2)] hover:-translate-y-0.5 active:translate-y-0",
+  primary: [
+    "border border-[var(--brand-treetop)]",
+    "bg-[var(--brand-rainforest)] text-white",
+    "shadow-[4px_4px_9px_rgba(3,63,45,0.18),-3px_-3px_8px_rgba(255,255,255,0.55)]",
+    "dark:shadow-[4px_4px_10px_rgba(0,0,0,0.25),-2px_-2px_7px_rgba(255,255,255,0.035)]",
+    "hover:bg-[var(--brand-treetop)]",
+    "hover:-translate-y-0.5",
+    "hover:shadow-[6px_6px_12px_rgba(3,63,45,0.2),-4px_-4px_9px_rgba(255,255,255,0.6)]",
+    "dark:hover:shadow-[6px_6px_13px_rgba(0,0,0,0.3),-3px_-3px_8px_rgba(255,255,255,0.045)]",
+    "disabled:shadow-none",
+  ].join(" "),
 
-  secondary:
-    "bg-[var(--brand-green-essence)] text-[var(--brand-rainforest)] border border-[var(--border-color)] shadow-sm hover:bg-[var(--surface-secondary)]",
+  secondary: [
+    "border border-border",
+    "bg-surface-secondary text-text-primary",
+    "shadow-[4px_4px_9px_rgba(3,63,45,0.09),-3px_-3px_8px_rgba(255,255,255,0.7)]",
+    "dark:shadow-[4px_4px_10px_rgba(0,0,0,0.2),-2px_-2px_7px_rgba(255,255,255,0.025)]",
+    "hover:-translate-y-0.5 hover:shadow-md",
+    "active:shadow-inner",
+  ].join(" "),
 
-  outline:
-    "border border-[var(--border-strong)] bg-transparent text-[var(--text-primary)] hover:border-[var(--brand-treetop)] hover:bg-[var(--surface-secondary)]",
+  outline: [
+    "border border-border",
+    "bg-surface text-text-primary",
+    "shadow-[3px_3px_7px_rgba(3,63,45,0.07),-3px_-3px_7px_rgba(255,255,255,0.65)]",
+    "dark:shadow-[3px_3px_8px_rgba(0,0,0,0.18),-2px_-2px_6px_rgba(255,255,255,0.02)]",
+    "hover:border-[var(--brand-treetop)]",
+    "hover:bg-surface-secondary hover:-translate-y-0.5",
+    "active:shadow-inner",
+  ].join(" "),
 
-  ghost:
-    "bg-transparent text-[var(--text-secondary)] hover:bg-[var(--surface-secondary)] hover:text-[var(--text-primary)]",
+  ghost: [
+    "border border-transparent",
+    "bg-transparent text-text-secondary",
+    "hover:bg-surface-secondary hover:text-text-primary",
+    "hover:border-border",
+  ].join(" "),
 
-  danger: "bg-[var(--danger)] text-white shadow-sm hover:brightness-95",
+  danger: [
+    "border border-[var(--danger)]",
+    "bg-[var(--danger)] text-white",
+    "shadow-[3px_3px_8px_rgba(120,30,30,0.16)]",
+    "hover:brightness-95 hover:-translate-y-0.5",
+    "hover:shadow-md",
+  ].join(" "),
 };
 
 const sizes: Record<ButtonSize, string> = {

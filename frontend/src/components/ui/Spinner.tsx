@@ -23,7 +23,9 @@ export function Spinner({
     >
       <span
         className={[
-          "animate-spin rounded-full border-primary/20 border-t-primary",
+          "animate-spin rounded-full",
+          "border-primary/20 border-t-primary",
+          "shadow-[2px_2px_5px_rgba(3,63,45,0.08)]",
           sizeStyles[size],
         ].join(" ")}
       />

@@ -22,7 +22,11 @@ export function Skeleton({
     <div
       aria-hidden="true"
       className={[
-        "animate-pulse bg-surface-secondary/40",
+        "animate-pulse",
+        "border border-border/30",
+        "bg-surface-secondary/60",
+        "shadow-[inset_2px_2px_5px_rgba(3,63,45,0.05),inset_-2px_-2px_5px_rgba(255,255,255,0.35)]",
+        "dark:shadow-[inset_2px_2px_5px_rgba(0,0,0,0.15)]",
         roundedStyles[rounded],
         className,
       ].join(" ")}

@@ -16,7 +16,7 @@ export function Textarea({
   const textareaId = id ?? name;
 
   return (
-    <div className="flex w-full flex-col gap-1.5">
+    <div className="flex w-full flex-col gap-2">
       {label && (
         <label
           htmlFor={textareaId}
@@ -34,21 +34,38 @@ export function Textarea({
           error && textareaId ? `${textareaId}-error` : undefined
         }
         className={[
-          "min-h-28 w-full resize-y rounded-xl border bg-surface px-4 py-3",
-          "text-sm text-text-primary placeholder:text-text-secondary/60",
-          "border-border outline-none transition-all duration-200",
+          // Shape and surface
+          "min-h-28 w-full resize-y rounded-xl border px-4 py-3",
+          "bg-surface text-sm text-text-primary",
+          "placeholder:text-text-secondary/60",
+
+          // Recessed Claymorphism
+          "border-border",
+          "shadow-[inset_3px_3px_7px_rgba(3,63,45,0.08),inset_-3px_-3px_7px_rgba(255,255,255,0.65)]",
+          "dark:shadow-[inset_3px_3px_7px_rgba(0,0,0,0.2),inset_-2px_-2px_6px_rgba(255,255,255,0.025)]",
+
+          // Focus
+          "outline-none transition-all duration-200",
           "focus:border-primary focus:ring-2 focus:ring-primary/15",
+          "focus:shadow-[inset_2px_2px_5px_rgba(3,63,45,0.06),0_0_0_3px_var(--focus-ring)]",
+
+          // Disabled
           "disabled:cursor-not-allowed disabled:opacity-50",
-          error ? "border-red-500 focus:border-red-500" : "",
+
+          // Error
+          error ? "border-danger focus:border-danger" : "",
+
           className,
-        ].join(" ")}
+        ]
+          .filter(Boolean)
+          .join(" ")}
         {...props}
       />
 
       {error && (
         <p
           id={textareaId ? `${textareaId}-error` : undefined}
-          className="text-xs text-red-600"
+          className="text-xs text-danger"
         >
           {error}
         </p>

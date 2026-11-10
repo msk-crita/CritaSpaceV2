@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import HomePage from "./HomePage";
+import DashboardPage from "../features/dashboard/DashboardPage";
 import LoginPage from "../features/auth/LoginPage";
 import ForgotPasswordPage from "../features/auth/ForgotPasswordPage";
 import ProtectedRoute from "./ProtectedRoute";
@@ -7,6 +7,7 @@ import GuestRoute from "./GuestRoute";
 import AppLayout from "../components/layout/AppLayout";
 import RoleProtectedRoute from "./RoleProtectedRoute";
 import CompanyPage from "../features/companies/CompanyPage";
+import BoardroomsPage from "../features/boardrooms/BoardroomsPage";
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: "/",
-            element: <HomePage />,
+            element: <DashboardPage />,
           },
           {
             element: <RoleProtectedRoute allowedRoles={["global_admin"]} />,
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
               {
                 path: "/companies",
                 element: <CompanyPage />,
+              },
+              {
+                path: "/boardrooms",
+                element: <BoardroomsPage />,
               },
             ],
           },

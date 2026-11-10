@@ -18,6 +18,7 @@ export function Pagination({
     <div className="flex items-center justify-between gap-3">
       <Button
         variant="outline"
+        size="md"
         disabled={currentPage <= 1}
         onClick={() => onPageChange(currentPage - 1)}
       >
@@ -25,12 +26,14 @@ export function Pagination({
         Previous
       </Button>
 
-      <span className="text-sm text-text-secondary">
-        Page {currentPage} of {totalPages}
+      <span className="rounded-xl border border-border bg-surface px-4 py-2 text-sm font-medium text-text-secondary shadow-[inset_2px_2px_4px_rgba(3,63,45,0.05)]">
+        Page <span className="font-bold text-text-primary">{currentPage}</span>{" "}
+        of <span className="font-bold text-text-primary">{totalPages}</span>
       </span>
 
       <Button
         variant="outline"
+        size="md"
         disabled={currentPage >= totalPages}
         onClick={() => onPageChange(currentPage + 1)}
       >

@@ -46,8 +46,22 @@ export const getDashboardSummary = async (user: UserProfile) => {
     firestore.collection("boardroom_blocks").get(),
   ]);
 
-  const bookings = bookingsSnapshot.docs
-    .map((doc) => doc.data())
+  type DashboardBooking = {
+    id: string;
+    status?: string;
+    userId?: string;
+    startAt: Timestamp;
+    endAt: Timestamp;
+  };
+
+  const bookings: DashboardBooking[] = bookingsSnapshot.docs
+    .map(
+      (doc) =>
+        ({
+          ...doc.data(),
+          id: doc.id,
+        }) as DashboardBooking,
+    )
     .filter(
       (booking) =>
         booking.status === "confirmed" &&
@@ -66,6 +80,10 @@ export const getDashboardSummary = async (user: UserProfile) => {
     (booking) => booking.startAt.toMillis() >= now.toMillis(),
   );
 
+  const upcomingBookingRecords = [...upcomingBookings]
+    .sort((a, b) => a.startAt.toMillis() - b.startAt.toMillis())
+    .slice(0, 5);
+
   const activeBoardrooms = boardroomsSnapshot.docs.filter(
     (doc) => doc.data().status === "active",
   );
@@ -82,13 +100,19 @@ export const getDashboardSummary = async (user: UserProfile) => {
 
   return {
     generatedAt: now,
-    bookings: {
-      today: todayBookings.length,
-      upcoming: upcomingBookings.length,
-    },
     boardrooms: {
       total: boardroomsSnapshot.size,
       active: activeBoardrooms.length,
+      items: activeBoardrooms.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })),
+    },
+
+    bookings: {
+      today: todayBookings.length,
+      upcoming: upcomingBookings.length,
+      upcomingItems: upcomingBookingRecords,
     },
     negotiations: {
       pending: pendingNegotiations.length,

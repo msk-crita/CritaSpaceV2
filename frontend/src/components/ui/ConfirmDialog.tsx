@@ -29,7 +29,13 @@ export function ConfirmDialog({
     <Modal open={open} onClose={onClose} title={title} size="sm">
       <div className="flex flex-col gap-5">
         <div className="flex items-start gap-3">
-          <div className="rounded-xl bg-red-100 p-3 text-red-600">
+          <div
+            className={[
+              "flex shrink-0 items-center justify-center rounded-xl p-3",
+              "border border-danger/20 bg-danger/10 text-danger",
+              "shadow-[3px_3px_7px_rgba(120,30,30,0.07)]",
+            ].join(" ")}
+          >
             <AlertTriangle size={22} />
           </div>
 
@@ -44,9 +50,10 @@ export function ConfirmDialog({
           </Button>
 
           <Button
-            variant={variant === "danger" ? "primary" : "secondary"}
+            variant={variant === "danger" ? "danger" : "primary"}
             onClick={onConfirm}
             disabled={loading}
+            loading={loading}
           >
             {loading ? "Please wait..." : confirmText}
           </Button>

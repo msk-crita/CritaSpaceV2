@@ -50,10 +50,21 @@ export function DropdownMenu({
         type="button"
         onClick={() => setOpen((previous) => !previous)}
         aria-expanded={open}
-        className="inline-flex items-center gap-2"
+        className={[
+          "inline-flex items-center gap-2 rounded-xl",
+          "transition-colors duration-200",
+          "focus-visible:outline-none focus-visible:ring-2",
+          "focus-visible:ring-primary focus-visible:ring-offset-2",
+        ].join(" ")}
       >
         {trigger}
-        <ChevronDown size={14} />
+        <ChevronDown
+          size={14}
+          className={[
+            "transition-transform duration-200",
+            open ? "rotate-180" : "",
+          ].join(" ")}
+        />
       </button>
 
       {open && (
@@ -62,7 +73,9 @@ export function DropdownMenu({
           className={[
             "absolute top-full z-40 mt-2 min-w-48",
             "rounded-xl border border-border bg-surface p-1.5",
-            "shadow-[0_8px_24px_rgba(3,63,45,0.12)]",
+            "shadow-[6px_6px_16px_rgba(3,63,45,0.12),-3px_-3px_10px_rgba(255,255,255,0.5)]",
+            "dark:shadow-[6px_6px_16px_rgba(0,0,0,0.3),-2px_-2px_8px_rgba(255,255,255,0.025)]",
+            "animate-in fade-in slide-in-from-top-1 duration-150",
             align === "right" ? "right-0" : "left-0",
           ].join(" ")}
         >
@@ -78,10 +91,11 @@ export function DropdownMenu({
               }}
               className={[
                 "flex w-full items-center gap-2 rounded-lg px-3 py-2.5",
-                "text-left text-sm transition-colors",
+                "text-left text-sm font-medium transition-all duration-150",
                 item.danger
-                  ? "text-red-600 hover:bg-red-50"
-                  : "text-text-primary hover:bg-accent/20",
+                  ? "text-danger hover:bg-danger/10"
+                  : "text-text-primary hover:bg-surface-secondary",
+                "active:scale-[0.98]",
                 "disabled:cursor-not-allowed disabled:opacity-50",
               ].join(" ")}
             >
