@@ -31,7 +31,17 @@ export const authenticateUser = async (
 
   try {
     decodedToken = await firebaseAuth.verifyIdToken(token, true);
-  } catch {
+  } catch (error) {
+    const authError = error as {
+      code?: string;
+      message?: string;
+    };
+
+    console.error("Firebase ID token verification failed:", {
+      code: authError.code,
+      message: authError.message,
+    });
+
     res.status(401).json({
       success: false,
       message: "Invalid or expired authentication token",
