@@ -75,7 +75,7 @@ export default function LoginPage() {
     setSubmitting(true);
 
     try {
-      await login(normalizedEmail, password);
+      await login(normalizedEmail, password, rememberMe);
       navigate(from && from !== "/login" ? from : "/", {
         replace: true,
       });
@@ -87,7 +87,7 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-screen w-full overflow-x-hidden bg-[#FAFAF2]">
+    <main className="min-h-screen w-full overflow-x-hidden bg-[#ECEBCB]">
       <div className="grid min-h-screen w-full lg:grid-cols-2">
         {/* LEFT — BRAND EXPERIENCE */}
         <section className="relative hidden min-h-screen flex-col overflow-hidden bg-[#033F2D] px-10 py-8 text-[#ECEBCB] lg:flex xl:px-16 xl:py-10">
@@ -108,7 +108,7 @@ export default function LoginPage() {
             <img
               src={logo}
               alt="CritaSpace"
-              className="h-8 w-auto object-contain xl:h-9"
+              className="h-8! w-auto! max-w-none object-contain"
             />
           </div>
 
@@ -120,7 +120,7 @@ export default function LoginPage() {
             </div>
 
             {/* Heading */}
-            <h1 className="max-w-lg text-3xl font-bold leading-[1.12] tracking-tight text-[#FAFAF2] xl:text-4xl">
+            <h1 className="max-w-lg text-3xl font-bold leading-[1.12] tracking-tight text-[#ECEBCB] xl:text-4xl">
               <span className="block text-[#D6E151]">
                 Simplify your workspace.
               </span>
@@ -146,7 +146,7 @@ export default function LoginPage() {
                       WORKSPACE SCHEDULE
                     </p>
 
-                    <h3 className="mt-1 text-lg font-bold text-[#FAFAF2]!">
+                    <h3 className="mt-1 text-lg font-bold text-[#ECEBCB]!">
                       Today's bookings
                     </h3>
                   </div>
@@ -294,7 +294,7 @@ export default function LoginPage() {
         </section>
 
         {/* RIGHT — SIGN IN */}
-        <section className="flex min-h-screen w-full items-center justify-center bg-[#FAFAF2] px-6 py-12 sm:px-12 lg:px-14 xl:px-24">
+        <section className="flex min-h-screen w-full items-center justify-center bg-[#ECEBCB] px-6 py-12 sm:px-12 lg:px-14 xl:px-24">
           <div className="w-full max-w-107.5">
             {/* Mobile logo */}
             <div className="mb-10 flex justify-center lg:hidden">
@@ -307,7 +307,7 @@ export default function LoginPage() {
 
             {/* Heading */}
             <div className="mb-10 text-center">
-              <div className="mx-auto mb-6 flex h-16.5 w-16.5 items-center justify-center rounded-3xl bg-[#ECEBCB] text-[#033F2D] shadow-[7px_7px_16px_rgba(3,63,45,0.10),-6px_-6px_14px_rgba(255,255,255,0.95),inset_1px_1px_3px_rgba(255,255,255,0.8)]">
+              <div className="mx-auto mb-6 flex h-16.5 w-16.5 items-center justify-center rounded-3xl bg-[#FAFAF2] text-[#033F2D] ,-6px_-6px_14px_rgba(255,255,255,0.95),inset_1px_1px_3px_rgba(255,255,255,0.8)]">
                 <LockKeyhole size={27} strokeWidth={1.7} />
               </div>
 
@@ -315,7 +315,7 @@ export default function LoginPage() {
                 Welcome back
               </p>
 
-              <h2 className="text-4xl font-bold tracking-tight text-[#033F2D] sm:text-[42px]">
+              <h2 className="text-4xl font-bold tracking-tight text-[#033F2D]! sm:text-[42px]">
                 Sign in to your
                 <span className="block text-[#4E6B31]">workspace.</span>
               </h2>
@@ -355,7 +355,7 @@ export default function LoginPage() {
                     }}
                     required
                     disabled={submitting}
-                    className="h-15 w-full rounded-[19px] border border-[#E1E2CB] bg-[#F2F2E6] pl-12 pr-5 text-[15px] text-[#033F2D] shadow-[inset_4px_4px_9px_rgba(3,63,45,0.07),inset_-4px_-4px_9px_rgba(255,255,255,0.85)] outline-none transition-all duration-200 placeholder:text-[#9AA184] hover:border-[#B8C78F] focus:border-[#7FA53F] focus:bg-[#F8F8ED] focus:shadow-[inset_2px_2px_5px_rgba(3,63,45,0.06),0_0_0_4px_rgba(127,165,63,0.12)] disabled:opacity-60"
+                    className="h-15 w-full rounded-[19px] border border-[#E1E2CB] bg-[#F2F2E6] pl-12 pr-5 text-[15px] text-[#033F2D] shadow-[inset_4px_4px_9px_rgba(3,63,45,0.07),inset_-4px_-4px_9px_rgba(255,255,255,0.85)] outline-none transition-all duration-200 placeholder:text-[#9AA184] hover:border-[#B8C78F] focus:border-[#7FA53F] focus:bg-[#F8F8ED] focus:shadow-[inset_2px_2px_5px_rgba(3,63,45,0.06),0_0_0_4px_rgba(127,165,63,0.12)] disabled:opacity-60 autofill:[-webkit-text-fill-color:#033F2D] autofill:[-webkit-box-shadow:inset_0_0_0_1000px_#F2F2E6] autofill:caret-[#033F2D] [&:-webkit-autofill]:[-webkit-text-fill-color:#033F2D] [&:-webkit-autofill]:[-webkit-box-shadow:inset_0_0_0_1000px_#F2F2E6] [&:-webkit-autofill:focus]:[-webkit-box-shadow:inset_0_0_0_1000px_#F8F8ED]"
                   />
                 </div>
               </div>
@@ -390,7 +390,7 @@ export default function LoginPage() {
                     }}
                     required
                     disabled={submitting}
-                    className="h-15 w-full rounded-[19px] border border-[#E1E2CB] bg-[#F2F2E6] pl-12 pr-14 text-[15px] text-[#033F2D] shadow-[inset_4px_4px_9px_rgba(3,63,45,0.07),inset_-4px_-4px_9px_rgba(255,255,255,0.85)] outline-none transition-all duration-200 placeholder:text-[#9AA184] hover:border-[#B8C78F] focus:border-[#7FA53F] focus:bg-[#F8F8ED] focus:shadow-[inset_2px_2px_5px_rgba(3,63,45,0.06),0_0_0_4px_rgba(127,165,63,0.12)] disabled:opacity-60"
+                    className="h-15 w-full rounded-[19px] border border-[#E1E2CB] bg-[#F2F2E6] pl-12 pr-14 text-[15px] text-[#033F2D] shadow-[inset_4px_4px_9px_rgba(3,63,45,0.07),inset_-4px_-4px_9px_rgba(255,255,255,0.85)] outline-none transition-all duration-200 placeholder:text-[#9AA184] hover:border-[#B8C78F] focus:border-[#7FA53F] focus:bg-[#F8F8ED] focus:shadow-[inset_2px_2px_5px_rgba(3,63,45,0.06),0_0_0_4px_rgba(127,165,63,0.12)] disabled:opacity-60 autofill:[-webkit-text-fill-color:#033F2D] autofill:[-webkit-box-shadow:inset_0_0_0_1000px_#F2F2E6] autofill:caret-[#033F2D] [&:-webkit-autofill]:[-webkit-text-fill-color:#033F2D] [&:-webkit-autofill]:[-webkit-box-shadow:inset_0_0_0_1000px_#F2F2E6] [&:-webkit-autofill:focus]:[-webkit-box-shadow:inset_0_0_0_1000px_#F8F8ED]"
                   />
 
                   <button

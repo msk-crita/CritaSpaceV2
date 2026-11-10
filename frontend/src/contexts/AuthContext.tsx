@@ -40,10 +40,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
     return unsubscribe;
   }, []);
 
-  const login = useCallback(async (email: string, password: string) => {
-    const profile = await loginService(email, password);
-    setUser(profile);
-  }, []);
+  const login = useCallback(
+    async (email: string, password: string, rememberMe: boolean) => {
+      const profile = await loginService(email, password, rememberMe);
+      setUser(profile);
+    },
+    [],
+  );
 
   const logout = useCallback(async () => {
     await logoutService();
