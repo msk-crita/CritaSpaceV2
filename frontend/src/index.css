@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* =========================================
+   HOUSCHKA ROUNDED — NORMAL
+========================================= */
+
 @font-face {
   font-family: "Houschka Rounded";
   src: url("./assets/fonts/fonnts.com-Houschka_Rounded_Thin.otf")
@@ -54,7 +58,9 @@
   font-display: swap;
 }
 
-/* Houschka Rounded — Italic styles */
+/* =========================================
+   HOUSCHKA ROUNDED — ITALIC
+========================================= */
 
 @font-face {
   font-family: "Houschka Rounded";
@@ -110,11 +116,12 @@
   font-display: swap;
 }
 
-/* ========================================
+/* =========================================
    CRITA BRAND COLORS
-======================================== */
+========================================= */
 
 :root {
+  /* Official Crita Brandbook colours */
   --brand-rainforest: #033f2d;
   --brand-treetop: #4e6b31;
   --brand-limeade: #d6e151;
@@ -123,72 +130,178 @@
 
   color-scheme: light;
 
+  /* Main surfaces */
   --app-background: var(--brand-green-essence);
-  --surface-primary: var(--brand-green-essence);
-  --surface-secondary: var(--brand-greenery);
+  --surface-primary: #f9f8ed;
+  --surface-secondary: #e5e7c5;
+  --surface-elevated: #fffef7;
+  --surface-muted: #e9eacb;
 
+  /* Typography */
   --text-primary: var(--brand-rainforest);
   --text-secondary: var(--brand-treetop);
+  --text-muted: #687653;
 
-  --border-color: var(--brand-greenery);
+  /* Borders */
+  --border-color: #d5d9b5;
+  --border-strong: #b8c28d;
 
+  /* Primary actions */
   --primary: var(--brand-rainforest);
-  --primary-foreground: var(--brand-green-essence);
+  --primary-hover: var(--brand-treetop);
+  --primary-foreground: #ffffff;
 
+  /* Brand accent */
   --accent: var(--brand-limeade);
   --accent-foreground: var(--brand-rainforest);
+
+  /* Sidebar */
+  --sidebar-background: var(--brand-rainforest);
+  --sidebar-foreground: var(--brand-green-essence);
+  --sidebar-muted: #bdcbaa;
+  --sidebar-active: var(--brand-treetop);
+
+  /* Status */
+  --success: var(--brand-treetop);
+  --success-soft: #dce8c5;
+
+  --warning: #8b741c;
+  --warning-soft: #f3edbd;
+
+  --danger: #b94343;
+  --danger-soft: #f7e4df;
+
+  --info: var(--brand-greenery);
+  --info-soft: #e0eacb;
+
+  --focus-ring: rgba(3, 63, 45, 0.25);
+
+  /* Premium depth */
+  --shadow-card:
+    0 2px 6px rgba(3, 63, 45, 0.04), 0 12px 30px rgba(3, 63, 45, 0.07);
+
+  --shadow-card-hover:
+    0 5px 12px rgba(3, 63, 45, 0.06), 0 18px 38px rgba(3, 63, 45, 0.12);
+
+  --shadow-floating: 0 10px 30px rgba(3, 63, 45, 0.16);
+
+  --shadow-sidebar: 4px 0 24px rgba(3, 35, 25, 0.16);
+
+  --radius-sm: 0.625rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.125rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 1.75rem;
 }
 
-/* ========================================
+/* =========================================
    DARK THEME
-======================================== */
+========================================= */
 
 .dark {
   color-scheme: dark;
 
-  --app-background: var(--brand-rainforest);
-  --surface-primary: var(--brand-rainforest);
-  --surface-secondary: var(--brand-treetop);
+  --app-background: #10271e;
+  --surface-primary: #18372a;
+  --surface-secondary: #204332;
+  --surface-elevated: #214333;
+  --surface-muted: #193a2c;
 
-  --text-primary: var(--brand-green-essence);
-  --text-secondary: var(--brand-limeade);
+  --text-primary: #f1f3e9;
+  --text-secondary: #bdcbbd;
+  --text-muted: #91a394;
 
-  --border-color: var(--brand-treetop);
+  --border-color: #315340;
+  --border-strong: #45634e;
 
-  --primary: var(--brand-limeade);
-  --primary-foreground: var(--brand-rainforest);
+  --primary: #a8c96c;
+  --primary-hover: #bddb83;
+  --primary-foreground: #173525;
 
-  --accent: var(--brand-greenery);
-  --accent-foreground: var(--brand-rainforest);
+  --accent: #435a35;
+  --accent-foreground: #eff4df;
+
+  --sidebar-background: #062d21;
+  --sidebar-foreground: #f7f8ed;
+  --sidebar-muted: #a9c1ad;
+  --sidebar-active: #24533b;
+
+  --success: #75c99b;
+  --success-soft: #244d38;
+
+  --warning: #edc36e;
+  --warning-soft: #59472a;
+
+  --danger: #f08a8a;
+  --danger-soft: #542f31;
+
+  --info: #86b9dc;
+  --info-soft: #28465c;
+
+  --focus-ring: rgba(168, 201, 108, 0.28);
+
+  --shadow-card:
+    0 3px 10px rgba(0, 0, 0, 0.12), 0 12px 28px rgba(0, 0, 0, 0.15);
+
+  --shadow-card-hover:
+    0 6px 16px rgba(0, 0, 0, 0.16), 0 18px 38px rgba(0, 0, 0, 0.22);
+
+  --shadow-floating: 0 12px 30px rgba(0, 0, 0, 0.3);
+
+  --shadow-sidebar: 4px 0 24px rgba(0, 0, 0, 0.2);
 }
 
-/* ========================================
+/* =========================================
    TAILWIND THEME TOKENS
-======================================== */
+========================================= */
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--app-background);
+
   --color-surface: var(--surface-primary);
   --color-surface-secondary: var(--surface-secondary);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-muted: var(--surface-muted);
 
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
 
   --color-border: var(--border-color);
+  --color-border-strong: var(--border-strong);
 
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
 
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
 
+  --color-sidebar: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-active: var(--sidebar-active);
+
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+
   --font-sans: "Houschka Rounded", sans-serif;
 }
 
-/* ========================================
+/* =========================================
    GLOBAL BASE STYLES
-======================================== */
+========================================= */
 
 * {
   box-sizing: border-box;
@@ -196,6 +309,7 @@
 
 html {
   min-width: 320px;
+  min-height: 100%;
   scroll-behavior: smooth;
 }
 
@@ -203,8 +317,114 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+
   background: var(--app-background);
   color: var(--text-primary);
+
   font-family: "Houschka Rounded", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* =========================================
+   FOCUS AND SELECTION
+========================================= */
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--brand-limeade);
+  color: var(--brand-rainforest);
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-greenery);
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
